@@ -37,6 +37,11 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Student</span></a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{route('teacher')}}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Teacher</span></a>
+            </li>
                     
             <!-- Divider -->
             <hr class="sidebar-divider">

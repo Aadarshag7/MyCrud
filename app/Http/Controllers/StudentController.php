@@ -38,7 +38,7 @@ class StudentController extends Controller
             'name'=>['required'],
             'dob'=>['required']
         ]);
-        $student= Student::create([
+       $student= Student::create([
             'name'=>$request->name,
             'dob'=>$request->dob,
             'section_id'=>$request->section_id ?? 1,

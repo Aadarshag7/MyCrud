@@ -5,6 +5,7 @@ use App\Http\Controllers\GradeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeacherController;
 use Dom\Attr;
 use Illuminate\Support\Facades\Route;
 
@@ -79,6 +80,13 @@ Route::middleware('auth')->group(function(){
     Route::get('edit/{id}','edit')->name('sections.edit');
     Route::put('edit/{id}','update')->name('sections.update');
     Route::delete('destroy/{id}','destroy')->name('sections.destroy');
+
+   });
+
+   Route::controller(TeacherController::class)->prefix('teacher')->group(function(){
+    Route::get('','index')->name('teacher');
+    Route::get('create','create')->name('teacher.create');
+    Route::post('store','store')->name('teacher.store');
 
    });
 
