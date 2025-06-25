@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\GradeController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\StudentController;
@@ -90,4 +92,14 @@ Route::middleware('auth')->group(function(){
 
    });
 
-   
+   Route::controller(NewsController::class)->prefix('news')->group(function(){
+   Route::get('','index')->name('news');
+   Route::get('create','create')->name('news.create');
+   Route::post('store','store')->name('news.store');
+   });
+
+   Route::controller(CategoryController::class)->prefix('category')->group(function(){
+    Route::get('','index')->name('category');
+    Route::get('create','create')->name('category.create');
+    Route::post('store','store')->name('category.store');
+   });

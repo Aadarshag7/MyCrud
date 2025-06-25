@@ -42,6 +42,16 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Teacher</span></a>
             </li>
+             <li class="nav-item active">
+                <a class="nav-link" href="{{route('news')}}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>News</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{route('category')}}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Category</span></a>
+            </li>
                     
             <!-- Divider -->
             <hr class="sidebar-divider">
