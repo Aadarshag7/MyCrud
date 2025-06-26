@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\News;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -12,7 +13,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $category=Category::get();
+        $category=Category::with('news')->get();
         return view('category.index',compact('category'));
 
     }
@@ -22,7 +23,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('category.create');
+        $news=News::get();
+        return view('category.create',compact('news'));
     }
 
     /**
@@ -30,9 +32,10 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        Category::create([
+       $category=Category::create([
             'name'=>$request->name
         ]);
+        $category->news()->attach($request->news_id);
         return redirect()->route('category');
     }
 

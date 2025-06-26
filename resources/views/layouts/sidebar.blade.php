@@ -52,6 +52,16 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Category</span></a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{route('category')}}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Game</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{route('category')}}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Player</span></a>
+            </li>
                     
             <!-- Divider -->
             <hr class="sidebar-divider">

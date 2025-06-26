@@ -19,6 +19,7 @@
         <tr>
             <th>#</th>
             <th>name</th>
+            <th>news</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -29,6 +30,11 @@
             <td class="align-middle">{{ $loop->iteration }}</td>
             <td class="align-middle">{{ $rs->name }}</td>
               <td class="align-middle">
+                 @if($rs->news->count() > 0)
+            @foreach($rs->news as $newss)
+            {{ $newss->title?? ''}}
+            @endforeach
+            @endif
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <a href="{{route('products.show', $rs->id)}}" type="button" class="btn btn-secondary">Detail</a>
                      <a href="{{route('sections.edit', $rs->id)}}" type="button" class="btn btn-secondary">Edit</a>
