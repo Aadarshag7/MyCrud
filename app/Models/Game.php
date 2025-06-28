@@ -11,4 +11,9 @@ class Game extends Model
     protected $fillable=[
         'title'
     ];
+
+    public function player()
+    {
+        return $this->belongsToMany(Player::class);
+    }
 }

@@ -13,4 +13,9 @@ class Player extends Model
         'age',
         'photo'
     ];
+
+    public function game()
+    {
+        return $this->belongsToMany(Game::class);
+    }
 }

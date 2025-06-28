@@ -29,11 +29,15 @@ class PlayerController extends Controller
      */
     public function store(Request $request)
     {
+       
         Player::create([
-            'name'=>$request->name,
+            'name'=>$request->title,
             'age'=>$request->age,
             'photo'=>$request->photo? $request->photo->store('Player','public'):null
-        ]);
+            ]);
+             
+        
+        return redirect()->route('player');
     }
 
     /**

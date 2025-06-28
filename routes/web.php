@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\GameController;
 use App\Http\Controllers\GradeController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\StudentController;
@@ -102,4 +104,16 @@ Route::middleware('auth')->group(function(){
     Route::get('','index')->name('category');
     Route::get('create','create')->name('category.create');
     Route::post('store','store')->name('category.store');
+   });
+
+   Route::controller(GameController::class)->prefix('game')->group(function(){
+   Route::get('','index')->name('game');
+   Route::get('create','create')->name('game.create');
+   Route::post('store','store')->name('game.store');
+   });
+
+   Route::controller(PlayerController::class)->prefix('player')->group(function(){
+    Route::get('','index')->name('player');
+    Route::get('create','create')->name('player.create');
+    Route::post('store','store')->name('player.store');
    });

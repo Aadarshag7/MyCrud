@@ -53,12 +53,12 @@
                     <span>Category</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="{{route('category')}}">
+                <a class="nav-link" href="{{route('game')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Game</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="{{route('category')}}">
+                <a class="nav-link" href="{{route('player')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Player</span></a>
             </li>
