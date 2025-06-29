@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Game;
+use App\Models\Player;
 use Illuminate\Http\Request;
 
 class GameController extends Controller
@@ -12,7 +13,7 @@ class GameController extends Controller
      */
     public function index()
     {
-        $game=Game::get();
+        $game=Game::with('player')->get();
         return view('game.index',compact('game'));
     }
 
@@ -21,7 +22,8 @@ class GameController extends Controller
      */
     public function create()
     {
-        return view('game.create');
+        $player=Player::get();
+        return view('game.create',compact('player'));
     }
 
     /**
@@ -29,9 +31,11 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        Game::create([
+      $game= Game::create([
             'title'=>$request->title
         ]);
+
+        $game->player()->attach($request->player_id);
 
         return redirect()->route('game');
     }

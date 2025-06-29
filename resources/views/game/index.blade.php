@@ -19,6 +19,7 @@
         <tr>
             <th>#</th>
             <th>Title</th>
+            <th>Player</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -28,7 +29,16 @@
         <tr>
             <td class="align-middle">{{ $loop->iteration }}</td>
             <td class="align-middle">{{ $rs->title }}</td>
-              <td class="align-middle">
+              
+                <td class="align-middle">
+                    @if ($rs->player->count()>0)
+                    @foreach($rs->player as $players)
+                    {{$players->age?? ''}}
+                    @endforeach
+                    @endif
+                </td>
+                <td class="align-middle">
+
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <a href="{{route('products.show', $rs->id)}}" type="button" class="btn btn-secondary">Detail</a>
                      <a href="{{route('sections.edit', $rs->id)}}" type="button" class="btn btn-secondary">Edit</a>

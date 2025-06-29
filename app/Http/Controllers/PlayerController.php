@@ -31,7 +31,7 @@ class PlayerController extends Controller
     {
        
         Player::create([
-            'name'=>$request->title,
+            'name'=>$request->name,
             'age'=>$request->age,
             'photo'=>$request->photo? $request->photo->store('Player','public'):null
             ]);
