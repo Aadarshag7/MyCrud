@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Game;
 use App\Models\Player;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class PlayerController extends Controller
      */
     public function index()
     {
-        $player=Player::get();
+        $player=Player::with('game')->get();
         return view('player.index',compact('player'));
     }
 
@@ -21,7 +22,8 @@ class PlayerController extends Controller
      */
     public function create()
     {
-        return view('player.create');
+        $game=Game::get();
+        return view('player.create',compact('game'));
     }
 
     /**
@@ -30,11 +32,13 @@ class PlayerController extends Controller
     public function store(Request $request)
     {
        
-        Player::create([
+     $player= Player::create([
             'name'=>$request->name,
             'age'=>$request->age,
             'photo'=>$request->photo? $request->photo->store('Player','public'):null
             ]);
+
+            $player->game()->attach($request->game_id);
              
         
         return redirect()->route('player');

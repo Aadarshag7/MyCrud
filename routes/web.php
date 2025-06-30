@@ -7,6 +7,7 @@ use App\Http\Controllers\GradeController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
@@ -116,4 +117,11 @@ Route::middleware('auth')->group(function(){
     Route::get('','index')->name('player');
     Route::get('create','create')->name('player.create');
     Route::post('store','store')->name('player.store');
+   });
+
+   Route::controller(RoleController::class)->prefix('role')->group(function(){
+    Route::get('','index')->name('role');
+    Route::get('create','create')->name('role.create');
+    Route::post('store','store')->name('role.store');
+
    });

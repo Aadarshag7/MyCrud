@@ -5,8 +5,8 @@
 @section('contents')
 
  <div class="d-flex align-items-center justify-content-between">
-    <h1 class="mb-0">List News</h1>
-    <a href="{{route('player.create')}}" class="btn btn-primary">Add Player</a>
+    <h1 class="mb-0">List Product</h1>
+    <a href="{{route('role.create')}}" class="btn btn-primary">Add Role</a>
  </div>
  <hr/>
  @if(Session::has('success'))
@@ -19,32 +19,20 @@
         <tr>
             <th>#</th>
             <th>Name</th>
-            <th>Age</th>
-             <th>Photo</th>
-             <th>game</th>
             <th>Action</th>
         </tr>
     </thead>
     <tbody>+
-        @if($player->count()>0)
-        @foreach($player as $rs)
+        @if($role->count()>0)
+        @foreach($role as $rs)
         <tr>
             <td class="align-middle">{{ $loop->iteration }}</td>
             <td class="align-middle">{{ $rs->name }}</td>
-            <td class="align-middle">{{ $rs->age}}</td>
-            <td class="align-middle">
-                @if($rs->photo)
-                <img src="{{asset('storage/'.$rs->photo)}}" alt="image" height="200" width="200">
-              @endif
-              <td class="align-middle">
-                @if($rs->game->count()>0)
-                @foreach()
-            </td>
               <td class="align-middle">
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <a href="{{route('products.show', $rs->id)}}" type="button" class="btn btn-secondary">Detail</a>
-                     <a href="{{route('sections.edit', $rs->id)}}" type="button" class="btn btn-secondary">Edit</a>
-                     <form action="{{route('sections.destroy' ,$rs->id)}}" method="POST" type="button" class="btn btn-danger">
+                     <a href="{{route('products.edit', $rs->id)}}" type="button" class="btn btn-secondary">Edit</a>
+                     <form action="{{route('products.destroy' ,$rs->id)}}" method="POST" type="button" class="btn btn-danger">
                         @csrf
                         @method('DELETE')
                      <button class="btn btn-danger m-0">Delete</button>

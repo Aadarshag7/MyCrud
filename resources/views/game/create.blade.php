@@ -15,7 +15,7 @@
         <div class="col">
             <h3 class="row mb-3">Player</h3>
            @foreach($player as $players)
-    <label>
+    <label> 
         <input type="radio" name="player_id" value="{{ $players->id }}">
         {{ $players->age }}
     </label><br>

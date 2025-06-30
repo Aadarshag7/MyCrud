@@ -62,6 +62,11 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Player</span></a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{route('role')}}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Role</span></a>
+            </li>
                     
             <!-- Divider -->
             <hr class="sidebar-divider">
