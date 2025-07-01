@@ -7,14 +7,29 @@
  <hr />
  <form action="{{route('role.store')}}" method="POST" enctype="multipart/form-data">
     @csrf
-    <div class="row mb-3">
+    
+
         <div class="col">
             <input type="text" name="name" class="form-control" placeholder="Name">
         </div>
         <div class="col">
-            <input type="checkbox" name="permissions" class="form-control" placeholder="Permission"></textarea>
+            <h3>Permission</h3>
+    @foreach($permissions as $permission)
+    
+        <div class="form-check">
+            <input 
+                type="checkbox" 
+                name="permissions[]" 
+                value="{{ $permission->name }}" 
+                class="form-check-input" 
+                id="perm_{{ $permission->name }}"
+            >
+            <label class="form-check-label" for="perm_{{ $permission->name }}">
+                {{ $permission->name }}
+            </label>
         </div>
-        </div>
+    @endforeach
+</div>
 
         <div class="row">
             <div class="d-grid">
