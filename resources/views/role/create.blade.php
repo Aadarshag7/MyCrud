@@ -20,7 +20,7 @@
             <input 
                 type="checkbox" 
                 name="permissions[]" 
-                value="{{ $permission->name }}" 
+                value="{{ $permission->id }}" 
                 class="form-check-input" 
                 id="perm_{{ $permission->name }}"
             >

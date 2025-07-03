@@ -30,7 +30,7 @@
             <td class="align-middle">{{ $rs->name }}</td>
               <td class="align-middle">
                 <div class="btn-group" role="group" aria-label="Basic example">
-                    <a href="{{route('products.show', $rs->id)}}" type="button" class="btn btn-secondary">Detail</a>
+                    <a href="{{route('role.show', $rs->id)}}" type="button" class="btn btn-secondary">Detail</a>
                      <a href="{{route('products.edit', $rs->id)}}" type="button" class="btn btn-secondary">Edit</a>
                      <form action="{{route('products.destroy' ,$rs->id)}}" method="POST" type="button" class="btn btn-danger">
                         @csrf

@@ -31,9 +31,13 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        Role::create([
-            'name'=>$request->name
+        $role=Role::create([
+            'name'=>$request->name,
+            
         ]);
+
+        $role->permissions()->attach($request->permissions);
+         return redirect()->route('role');
     }
 
     /**
@@ -49,7 +53,8 @@ class RoleController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $role=Role::find($id);
+        return view('role.edit',compact('role'));
     }
 
     /**

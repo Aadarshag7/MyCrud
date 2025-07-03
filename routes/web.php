@@ -123,5 +123,7 @@ Route::middleware('auth')->group(function(){
     Route::get('','index')->name('role');
     Route::get('create','create')->name('role.create');
     Route::post('store','store')->name('role.store');
+     Route::get('show/{id}','show')->name('role.show');
+     Route::get('edit/{id}','edit')->name('role.edit');
 
    });
